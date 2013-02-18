@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<configuraction>
+	<web-mvc>
+		<controller-component-scan package="org.koumi.web.controller" />
+		<from-resolve-component-scan package="org.koumi.resolve" />
+		<!--<web-interceptors>
+			 <web-interceptor class="org.koumi.web.interceptor.LoginInterceptor"></web-interceptor>
+		</web-interceptors> -->
+		<!-- 
+		<web-model-resolve>
+			<json-resolve class=""/>
+		</web-model-resolve>
+		-->
+		<!-- <web-from-resolve>
+			<date-resolve class="org.koumi.resolve.DataResolve" type="java.util.Date"/>
+		</web-from-resolve>-->
+	</web-mvc>
+	<!-- <bean id="UserController" class="org.koumi.web.controller.UserController"></bean> -->
+</configuraction>
