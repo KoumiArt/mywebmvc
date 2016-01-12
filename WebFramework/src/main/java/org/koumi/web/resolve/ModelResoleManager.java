@@ -21,14 +21,14 @@ public class ModelResoleManager {
 	private HttpServletResponse response;
 
 	public void execModelResolve(Object result, Method method) throws Exception {	
-		//JSON½âÎö
+		//JSONè§£æ
 		if(method.isAnnotationPresent(ResponseBody.class)){
-			//Ïò¿Í»§¶ËĞ´ÈëJSONBean
+			//å‘å®¢æˆ·ç«¯å†™å…¥JSONBean
 			response.setContentType("text/json,charset=utf-8");
 			response.setCharacterEncoding("gbk");
 			response.getWriter().println(JsonUtil.toJson(result));
 		} else {
-			// Ä£ĞÍ½âÎö·½·¨ 
+			// æ¨¡å‹è§£ææ–¹æ³• 
 			if (result instanceof String) {
 				forward(result.toString());
 				return ;
@@ -44,7 +44,7 @@ public class ModelResoleManager {
 				return;
 			} else {
 				
-				//¶ÁÈ¡web-model-resolve
+				//è¯»å–web-model-resolve
 				Map<String,String> resolveMap = XMLHelper.getChildNodeAttributes("web-model-resolve", "class");
 				IModelResolve resoleObj  = null;			
 				if(null != resolveMap && resolveMap.size() >0) {
@@ -78,12 +78,12 @@ public class ModelResoleManager {
 		request.getRequestDispatcher(url).forward(request, response);
 	}
 	/**
-	 * °ÑModelMapÖĞµÄÊı¾İ·ÅÈësessionÖĞ
+	 * æŠŠModelMapä¸­çš„æ•°æ®æ”¾å…¥sessionä¸­
 	 * 
 	 * @param modelMap
 	 */
 	private void putSessionAttribute(ModelMap modelMap) {
-		// ÏòsessionÖĞ·ÅÈë²ÎÊı
+		// å‘sessionä¸­æ”¾å…¥å‚æ•°
 		Map<String, Object> sessionMap = modelMap.getSessionMap();
 		Set<Entry<String, Object>> sessionSet = sessionMap.entrySet();
 		for (Entry<String, Object> entry : sessionSet) {
@@ -93,12 +93,12 @@ public class ModelResoleManager {
 	}
 
 	/**
-	 * °ÑModelMapÖĞµÄÊı¾İ·ÅÈërequestÖĞ
+	 * æŠŠModelMapä¸­çš„æ•°æ®æ”¾å…¥requestä¸­
 	 * 
 	 * @param modelMap
 	 */
 	private void putRequestAttribute(ModelMap modelMap) {
-		// ÏòrequestÖĞ·ÅÈë²ÎÊı
+		// å‘requestä¸­æ”¾å…¥å‚æ•°
 		Map<String, Object> requestMap = modelMap.getRequestMap();
 		Set<Entry<String, Object>> set = requestMap.entrySet();
 		for (Entry<String, Object> entry : set) {

@@ -24,14 +24,14 @@ public class LoginController {
 				|| user.getUserName().trim().length() <= 0
 				|| user.getUserPwd() == null
 				|| user.getUserPwd().trim().length() <= 0){
-			modelMap.putRequsetAttribute("msg", "ÓÃ»§Ãû»òÃÜÂë²»ÄÜÎª¿Õ!");
+			modelMap.putRequsetAttribute("msg", "ç”¨æˆ·åæˆ–å¯†ç ä¸èƒ½ä¸ºç©º!");
 		} else if (user.getUserName().equals("admin")
 				&& user.getUserPwd().equals("admin")) {
 			modelMap.putSessionAttribute("userName", user.getUserName());
 			modelMap.setResult("redirect:/list.do");
 			return modelMap;
 		} else {
-			modelMap.putRequsetAttribute("msg", "ÓÃ»§Ãû»òÃÜÂë´íÎó!");
+			modelMap.putRequsetAttribute("msg", "ç”¨æˆ·åæˆ–å¯†ç é”™è¯¯!");
 		}
 		return modelMap;
 	}
@@ -46,7 +46,7 @@ public class LoginController {
 		User user = new User();
 		user.setId(1);
 		user.setUserName("test");
-		user.setUserPwd("ÃÜÂë");
+		user.setUserPwd("å¯†ç ");
 		return user;
 	}
 	
@@ -61,7 +61,7 @@ public class LoginController {
 		User user = new User();
 		user.setId(1);
 		user.setUserName("test");
-		user.setUserPwd("ÃÜÂë");
+		user.setUserPwd("å¯†ç ");
 		return user;
 	}
 }

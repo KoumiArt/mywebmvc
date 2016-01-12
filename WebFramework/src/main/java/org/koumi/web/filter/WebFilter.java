@@ -32,7 +32,7 @@ public class WebFilter implements Filter{
 	}
 
 	/* 
-	 * »ñÈ¡configÎÄ¼şÖĞµÄweb-interceptorµÄclass,²¢ÇÒ´Ëclass±ØĞëÊÇÓĞ¸öinvoke·½·¨,²¢ÇÒ·½·¨µÄ²ÎÊıÎªModelMap
+	 * è·å–configæ–‡ä»¶ä¸­çš„web-interceptorçš„class,å¹¶ä¸”æ­¤classå¿…é¡»æ˜¯æœ‰ä¸ªinvokeæ–¹æ³•,å¹¶ä¸”æ–¹æ³•çš„å‚æ•°ä¸ºModelMap
 	 * (non-Javadoc)
 	 * @see javax.servlet.Filter#doFilter(javax.servlet.ServletRequest, javax.servlet.ServletResponse, javax.servlet.FilterChain)
 	 */
@@ -41,7 +41,7 @@ public class WebFilter implements Filter{
 		modelMap.setResult(getHttpServletRequest(servletRequest).getRequestURI());
 		putSessionAttributeToModelMap(servletRequest);
 		putRequestAttributeToModelMap(servletRequest);
-		//¶ÁÈ¡interceptors
+		//è¯»å–interceptors
 		List<String> interceptors = XMLHelper.getAttributes("web-interceptor", "class");
 		if(null != interceptors) {
 			for (String interceptor : interceptors) {
@@ -63,7 +63,7 @@ public class WebFilter implements Filter{
 	}
 
 	/**
-	 * ÉèÖÃSessionAttributµ½ModelMapÖĞ
+	 * è®¾ç½®SessionAttributåˆ°ModelMapä¸­
 	 * @param servletRequest
 	 */
 	private void putSessionAttributeToModelMap(ServletRequest servletRequest) {
@@ -76,7 +76,7 @@ public class WebFilter implements Filter{
 	}
 	
 	/**
-	 * ÉèÖÃrequestAttributµ½ModelMapÖĞ
+	 * è®¾ç½®requestAttributåˆ°ModelMapä¸­
 	 * @param request
 	 */
 	private void putRequestAttributeToModelMap(ServletRequest request) {

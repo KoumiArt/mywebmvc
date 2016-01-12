@@ -45,15 +45,15 @@ public class DispatcherServlet extends HttpServlet {
 
 	public void doPost(HttpServletRequest request, HttpServletResponse response)
 			throws ServletException, IOException {
-		// »ñÈ¡uri
+		// ï¿½ï¿½È¡uri
 		try {
 			String uris = request.getRequestURI();
 			uris = uris.replaceFirst(request.getContextPath(), "");
-			//È¡µÃbeanºÍÒªÖ´ÐÐµÄmethod
+			//È¡ï¿½ï¿½beanï¿½ï¿½ÒªÖ´ï¿½Ðµï¿½method
 			Object[] beanAndMethodMapping = ContextLoader.getRestFul(uris);
 			String methodMapping = beanAndMethodMapping[0].toString();
 			Object bean = beanAndMethodMapping[1];
-			//Ö´ÐÐ
+			//Ö´ï¿½ï¿½
 			doAction(request, response,bean,methodMapping);
 		} catch (MyException e) {
 			e.printStackTrace();
@@ -72,11 +72,11 @@ public class DispatcherServlet extends HttpServlet {
 	private void doAction(HttpServletRequest request,
 			HttpServletResponse response,Object bean,String methodMapping) throws Exception {
 		Method method = controllerUtil.getControllerRequestMappingMethod(bean,methodMapping);
-		// »ñÈ¡ Anntation²ÎÊý
+		// ï¿½ï¿½È¡ Anntationï¿½ï¿½ï¿½ï¿½
 		Map<String, String> params = controllerUtil.getControllerMethodParams(method);
-		// »ñÈ¡·½·¨µÄ²ÎÊýÀàÐÍÁÐ±í
+		// ï¿½ï¿½È¡ï¿½ï¿½ï¿½ï¿½ï¿½Ä²ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ð±ï¿½
 		Class<?>[] clazz = method.getParameterTypes();
-		// ·½·¨²ÎÊýÁÐ±í
+		// ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ð±ï¿½
 		Object[] methodParams = new Object[clazz.length];
 		for (int j = 0; j < clazz.length; j++) {
 			String inputName = params.get(clazz[j].getName() + (j + 1));							
@@ -84,7 +84,7 @@ public class DispatcherServlet extends HttpServlet {
 		}
 		method.setAccessible(true);
 		Object result = method.invoke(bean,methodParams);
-		// Ä£ÐÍ½âÎö·½·¨
+		// Ä£ï¿½Í½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
 		modelResoleManager.setRequest(request);
 		modelResoleManager.setResponse(response);
 		modelResoleManager.execModelResolve(result,method);
@@ -92,7 +92,7 @@ public class DispatcherServlet extends HttpServlet {
 	}
 
 	/**
-	 * ÉèÖÃ²ÎÊý
+	 * ï¿½ï¿½ï¿½Ã²ï¿½ï¿½ï¿½
 	 * @param request
 	 * @param clazz
 	 * @param inputName
@@ -104,17 +104,17 @@ public class DispatcherServlet extends HttpServlet {
 	private Object setParam(HttpServletRequest request, Class<?> clazz,  String inputName)
 			throws InstantiationException, IllegalAccessException, Exception {
 		if (clazz.isPrimitive() || clazz.isInstance("java.lang.String")) {
-			// ¼òµ¥²ÎÊý·â×°£¬È¥requestÖÐÕÒ
+			// ï¿½òµ¥²ï¿½ï¿½ï¿½ï¿½ï¿½×°ï¿½ï¿½È¥requestï¿½ï¿½ï¿½ï¿½
 			String paramValue = inputName == null? null : request.getParameter(inputName);
-			// ¿ÉÒÔÔÚ´Ë´¦·â×°bean¶ÔÏó
+			// ï¿½ï¿½ï¿½ï¿½ï¿½Ú´Ë´ï¿½ï¿½ï¿½×°beanï¿½ï¿½ï¿½ï¿½
 			if (paramValue == null){
 				throw new NullPointerException(inputName
-						+ " is NULL!(Çë¼ì²éform±íµ¥µÄ)");
+						+ " is NULL!(ï¿½ï¿½ï¿½ï¿½formï¿½ï¿½ï¿½ï¿½)");
 			}
 			return paramValue;
 		}							
-		//¶ÔÏóµÄ·â×°
-		Object bean  = MyUtil.getObjectParamInstance(clazz);
+		//ï¿½ï¿½ï¿½ï¿½Ä·ï¿½×°
+		Object bean  = MyUtil.getInstance(clazz);
 		FormResolveManager formResolveManager = new FormResolveManager();
 		formResolveManager.setRequest(request);
 		bean = formResolveManager.getBean(inputName,bean);

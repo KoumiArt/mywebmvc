@@ -1,41 +1,11 @@
 package org.koumi.util;
 
 import java.lang.reflect.Array;
-import java.text.DateFormat;
-import java.text.SimpleDateFormat;
 import java.util.ArrayList;
-import java.util.Date;
 import java.util.HashMap;
 import java.util.HashSet;
 
 public class MyUtil {
-	private static String DEFAULT_FORMAT = "yyyy-mm-dd";
-	
-	public static Date stringToDate(String dateStr) {
-		return stringToDate(dateStr, DEFAULT_FORMAT);
-	}
-	public static Date stringToDate(String dateStr, String formatStr) {
-		Date date = null;
-		try {
-			DateFormat dd = new SimpleDateFormat(formatStr);
-			date = dd.parse(dateStr);
-		} catch (java.text.ParseException e) {
-			e.printStackTrace();
-		}
-		return date;
-	}
-	
-	public static String dateToString(Date date){
-		return dateToString(date, DEFAULT_FORMAT);
-	}
-	public static String dateToString(Date date,String formatStr){
-		String dateStr = null;
-		if(date !=null && formatStr !=null){
-			SimpleDateFormat dateFormate = new SimpleDateFormat(formatStr);
-			dateStr = dateFormate.format(date);
-		}
-		return dateStr;
-	}
 	
 	/**
 	 * 首字母边小写
@@ -47,7 +17,6 @@ public class MyUtil {
 	}
 	
 	public static int getArrayLengths() {
-		// TODO Auto-generated method stub
 		return 5;
 	}
 	
@@ -57,7 +26,7 @@ public class MyUtil {
 	 * @throws InstantiationException
 	 * @throws IllegalAccessException
 	 */
-	public static Object getObjectParamInstance(Class<?> clazz) throws InstantiationException, IllegalAccessException{
+	public static Object getInstance(Class<?> clazz) throws InstantiationException, IllegalAccessException{
 		Object bean  = null;
 		if(clazz.isInterface() && clazz.getName().equals("java.util.List")){
 			bean = new ArrayList<Object>();

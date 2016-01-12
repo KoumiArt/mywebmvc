@@ -22,7 +22,7 @@ public class JSONResolve implements IModelResolve {
 	public void modelResolve(Object result) throws ServletException,
 			MyException {
 		try {
-			// Ïò¿Í»§¶ËĞ´ÈëJSONBean
+			// å‘å®¢æˆ·ç«¯å†™å…¥JSONBean
 			response.setContentType("text/json,charset=utf-8");
 			response.setCharacterEncoding("gbk");
 			response.getWriter().println(JsonUtil.toJson(result));
@@ -30,7 +30,7 @@ public class JSONResolve implements IModelResolve {
 		} catch (Exception ex) {
 			this.isResolve = false;
 			ex.printStackTrace();
-			throw new MyException("JSON½âÎö´íÎó£¡" + ex.getMessage());
+			throw new MyException("JSONè§£æé”™è¯¯ï¼" + ex.getMessage());
 		}
 
 	}

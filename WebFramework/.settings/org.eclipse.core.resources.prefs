@@ -4,6 +4,7 @@ encoding//src/main/java/org/koumi/annotation/Controller.java=UTF-8
 encoding//src/main/java/org/koumi/annotation/FromResolve.java=UTF-8
 encoding//src/main/java/org/koumi/annotation/Interceptor.java=UTF-8
 encoding//src/main/java/org/koumi/annotation/Param.java=UTF-8
+encoding//src/main/java/org/koumi/web/resolve/FormResolveManager.java=GBK
 encoding//src/test/java=UTF-8
 encoding//src/test/resources=UTF-8
 encoding/<project>=UTF-8

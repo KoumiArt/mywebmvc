@@ -12,7 +12,7 @@
 		</web-model-resolve>
 		-->
 		<!-- <web-from-resolve>
-			<date-resolve class="org.koumi.resolve.DataResolve" type="java.util.Date"/>
+			<date-resolve class="org.koumi.resolve.DateResolve" type="java.time.LocalDate"/>
 		</web-from-resolve>-->
 	</web-mvc>
 	<!-- <bean id="UserController" class="org.koumi.web.controller.UserController"></bean> -->

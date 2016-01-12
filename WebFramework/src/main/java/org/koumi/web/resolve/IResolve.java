@@ -6,22 +6,22 @@ import javax.servlet.ServletException;
 import javax.servlet.http.HttpServletRequest;
 
 /**
- * ½âÎöµÄ½Ó¿Ú
+ * è§£æçš„æ¥å£
  * @author Koumi
  *
  */
 public interface IResolve {
 	/**
-	 * ÓÃÓÚ½âÎö
-	 * @param inputName Òª½øĞĞ@paramµÄÖµ
-	 * @return ½âÎöºóÏà¶ÔµÄ¶ÔÏóÊµÀı£¬Èç£º½âÎöjava.util.Date,ÔòĞèÒª·µ»ØÒ»¸öjava.util.Date¶ÔÏóÊµÀı
+	 * ç”¨äºè§£æ
+	 * @param inputName è¦è¿›è¡Œ@paramçš„å€¼
+	 * @return è§£æåç›¸å¯¹çš„å¯¹è±¡å®ä¾‹ï¼Œå¦‚ï¼šè§£æjava.util.Date,åˆ™éœ€è¦è¿”å›ä¸€ä¸ªjava.util.Dateå¯¹è±¡å®ä¾‹
 	 * @throws ServletException
 	 * @throws IOException
 	 */
 	public Object resolve(String inputName) throws ServletException, IOException;
 
 	/**
-	 * request¶ÔÏó
+	 * requestå¯¹è±¡
 	 * @param request
 	 */
 	public void setRequest(HttpServletRequest request);

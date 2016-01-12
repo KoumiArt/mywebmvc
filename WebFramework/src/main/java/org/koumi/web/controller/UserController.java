@@ -14,9 +14,9 @@ public class UserController {
 	public ModelMap userList(){
 		ModelMap modelMap = new ModelMap();
 		List<String> lst = new ArrayList<String>();
-		lst.add("张三");
-		lst.add("李四");
-		lst.add("王五");			
+		lst.add("寮犱笁");
+		lst.add("鏉庡洓");
+		lst.add("鐜嬩簲");			
 		modelMap.putRequsetAttribute("lst", lst);
 		modelMap.setResult("/index.jsp");
 		return modelMap;

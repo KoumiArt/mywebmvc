@@ -6,7 +6,7 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
 /**
- * ¹¦ÄÜ£º¸ºÔğ°Ñcontroller·µ»ØµÄÀàĞÍ½øĞĞ½âÎö
+ * åŠŸèƒ½ï¼šè´Ÿè´£æŠŠcontrollerè¿”å›çš„ç±»å‹è¿›è¡Œè§£æ
  * @author Koumi
  *
  */
@@ -14,8 +14,8 @@ public class DefaultModelResolve implements IModelResolve {
 	private boolean isResolve = false; 
 
 	/**
-	 * Ä£ĞÍ½âÎö·½·¨£¬¿ÉÒÔ×Ô¼ºÍØÕ¹£¬Ö»ĞèÊµÏÖIModelReslove½Ó¿Ú£¬²¢ÇÒÔÚconfig.xmlÖĞÅäÖÃÒ»¸ö<web-model-resolve class=""/>
-	 * @param result ¿ØÖÆÆ÷·µ»ØµÄ½á¹û
+	 * æ¨¡å‹è§£ææ–¹æ³•ï¼Œå¯ä»¥è‡ªå·±æ‹“å±•ï¼Œåªéœ€å®ç°IModelResloveæ¥å£ï¼Œå¹¶ä¸”åœ¨config.xmlä¸­é…ç½®ä¸€ä¸ª<web-model-resolve class=""/>
+	 * @param result æ§åˆ¶å™¨è¿”å›çš„ç»“æœ
 	 * @throws ServletException
 	 * @throws IOException
 	 */
